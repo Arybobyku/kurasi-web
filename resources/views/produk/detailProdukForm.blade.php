@@ -52,9 +52,8 @@
                             <label for="">Deskripsi Produk</label>
                             <div>
                                 <div>
-                                    <textarea type="text" name="produk_kategori" value="{{ $produk->deskripsi }}"
-                                        id="" class="form-control" id="" value=""
-                                        placeholder="Produk Kategori" disabled>{{ $produk->deskripsi }}</textarea>
+                                    <textarea type="text" name="produk_kategori" value="{{ $produk->deskripsi }}" id="" class="form-control"
+                                        id="" value="" placeholder="Produk Kategori" disabled>{{ $produk->deskripsi }}</textarea>
                                 </div>
                             </div>
                         </div>
@@ -76,16 +75,16 @@
                         <div class="form-group">
                             <label for="">Bahan Kimia</label>
                             <div>
-                                <textarea type="text" name="bahan_kimia" value="{{ $produk->bahan_kimia }}" id=""
-                                    class="form-control" id="" value="" placeholder="Bahan Kimia" disabled>{{ $produk->bahan_kimia }}</textarea>
+                                <textarea type="text" name="bahan_kimia" value="{{ $produk->bahan_kimia }}" id="" class="form-control"
+                                    id="" value="" placeholder="Bahan Kimia" disabled>{{ $produk->bahan_kimia }}</textarea>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="">Perhitungan Jumlah Komposisi bahan baku dan bahan tambahan dan bahan kimia</label>
+                            <label for="">Perhitungan Jumlah Komposisi bahan baku dan bahan tambahan dan bahan
+                                kimia</label>
                             <div>
-                                <textarea type="text" name="perhitungan_kimia" value="{{ $produk->perhitungan_kimia }}"
-                                    id="" class="form-control" id="" value=""
-                                    placeholder="Perhitungan Kimia" disabled>{{ $produk->perhitungan_kimia }}</textarea>
+                                <textarea type="text" name="perhitungan_kimia" value="{{ $produk->perhitungan_kimia }}" id=""
+                                    class="form-control" id="" value="" placeholder="Perhitungan Kimia" disabled>{{ $produk->perhitungan_kimia }}</textarea>
                             </div>
                         </div>
                         <div class="form-group">
@@ -144,19 +143,19 @@
                         <div class="form-group">
                             <label for="">Logo Halal</label>
                             <div>
-                                <input disabled type="text" value="{{ $produk->logo_halal }}" class="form-control" >
+                                <input disabled type="text" value="{{ $produk->logo_halal }}" class="form-control">
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="">Nomor Pirt</label>
                             <div>
-                                <input disabled type="text" value="{{ $produk->no_pirt }}" class="form-control" >
+                                <input disabled type="text" value="{{ $produk->no_pirt }}" class="form-control">
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="">Nomor BPOM</label>
                             <div>
-                                <input disabled type="text" value="{{ $produk->no_pirt }}" class="form-control" >
+                                <input disabled type="text" value="{{ $produk->no_pirt }}" class="form-control">
                             </div>
                         </div>
 
@@ -259,16 +258,15 @@
                 bcid: 'qrcode', // Barcode type
                 text: barcode,
             })
-
+            
 
         } catch (e) {
             // `e` may be a string or Error object
         }
 
-        function printDiv(divName) {
-            const canvas = document.getElementById('qrcodeCanvas')
-            const img = canvas.toDataURL('image/png')
-            document.getElementById('canvaPrint').src = img
+        async function printDiv(divName) {
+
+            await capture();
 
             var printContents = document.getElementById(divName).innerHTML;
             var originalContents = document.body.innerHTML;
@@ -278,6 +276,13 @@
             window.print();
 
             document.body.innerHTML = originalContents;
+        }
+
+        async function capture() {
+
+            const canvas = document.getElementById('qrcodeCanvas')
+            const img = canvas.toDataURL('image/png')
+            document.getElementById('canvaPrint').src = img
         }
     </script>
 @endsection

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\FormProduk;
 use App\Models\Kategori;
 use App\Models\Umkm;
 use Illuminate\Http\Request;
@@ -31,14 +32,15 @@ class DashboardController extends Controller
     {
 
         $umkm = Umkm::find($request->idumkm)->update(['catatan' => $request->catatan, 'status' => 2]);
-
+        FormProduk::where('id_umkm',$request->idterima)->update(['status'=>2]);
         return redirect()->back()->with('success', 'Data berhasil diperbarui');
     }
 
     public function terima(Request $request)
     {
 
-        $umkm = Umkm::find($request->idterima)->update(['catatan' => $request->catatan, 'status' => 1]);
+        Umkm::find($request->idterima)->update(['catatan' => $request->catatan, 'status' => 1]);
+        FormProduk::where('id_umkm',$request->idterima)->update(['status'=>1]);
         return redirect()->back()->with('success', 'Data berhasil diperbarui');
     }
 

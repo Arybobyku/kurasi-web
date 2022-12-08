@@ -271,42 +271,43 @@
                                             Detail
                                         </a>
                                         @if (Auth::guard()->user()->level == 1)
-                                            <a href="{{ route('listProdukFormUMKM', $d->id) }}"
-                                                class="btn btn-warning" id="{{ $d->id }}"
-                                                title=" List Produk ">
+                                            <a href="{{ route('listProdukFormUMKM', $d->id) }}" class="btn btn-warning"
+                                                id="{{ $d->id }}" title=" List Produk ">
                                                 Produk
                                             </a>
 
-                                            <a class="btn btn-success terima_btn"
-                                                id="{{ $d->id }}" title=" Edit Data ">
-                                               Terima
+                                            <a class="btn btn-success terima_btn" id="{{ $d->id }}"
+                                                title=" Edit Data ">
+                                                Terima
                                             </a>
 
                                             <a class="btn  btn-danger tolak_btn" id="{{ $d->id }}"
                                                 title=" Edit Data ">
-                                               Tolak
+                                                Tolak
                                             </a>
                                         @endif
 
-                                        @if (Auth::guard()->user()->level == 2)
-                                            <a href="{{ route('editdata', $d->id) }}"
-                                                class="btn btn-info" id="{{ $d->id }}"
-                                                title=" Edit Data ">
-                                                Edit
-                                            </a>
+                                        @if (Auth::guard()->user()->level == 2 || Auth::guard()->user()->level == 3)
+                                            @if (Auth::guard()->user()->level == 2)
+                                                <a href="{{ route('editdata', $d->id) }}" class="btn btn-info"
+                                                    id="{{ $d->id }}" title=" Edit Data ">
+                                                    Edit
+                                                </a>
+                                            @endif
 
-                                            @if ($d->status != 0 )
+                                            @if ($d->status != 0)
                                                 <a href="{{ route('listProdukFormUMKM', $d->id) }}"
                                                     class="btn btn-warning " id="{{ $d->id }}"
                                                     title=" List Produk ">
                                                     Produk
                                                 </a>
                                             @endif
-
-                                            <button type="submit" class="btn  btn-danger" title="Delete"
-                                                onclick="return confirm('Are you sure want to delete this data?')">
-                                                Hapus
-                                            </button>
+                                            @if (Auth::guard()->user()->level == 2)
+                                                <button type="submit" class="btn  btn-danger" title="Delete"
+                                                    onclick="return confirm('Are you sure want to delete this data?')">
+                                                    Hapus
+                                                </button>
+                                            @endif
                                         @endif
 
                                     </td>
