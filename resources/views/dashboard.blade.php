@@ -133,7 +133,7 @@
                         <!--end::Dropdown-->
                         <!--begin::Button-->
                         <div class="dropdown dropdown-inline mr-2">
-                            @if (Auth::guard()->user()->level == 1)
+                            @if (Auth::guard()->user()->level == 3)
                                 <button type="button" class="btn btn-light-primary font-weight-bolder dropdown-toggle"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <span class="svg-icon svg-icon-md">
