@@ -49,6 +49,9 @@ Route::post('editProdukFormUmkm', [ProdukFormController::class,'updateProdukForm
 Route::get('detailProdukUmkm/{id}/{umkmId}', [ProdukFormController::class,'detailProdukFormUMKMPage'] )->name('detailProdukForm')->middleware('auth');
 Route::delete('deleteProdukFormUmkm/{id}', [ProdukFormController::class,'deleteProdukFormUMKM'] )->name('deleteProdukForm')->middleware('auth');
 
+Route::delete('delete/{id}', [DashboardController::class,'hapus'] )->name('deleteumkm')->middleware('auth');
+
+
 Route::post('produkFormTerima', [ProdukFormController::class,'terima'] )->name('produkForm.terima')->middleware('auth');
 Route::post('produkFormTolak', [ProdukFormController::class,'tolak'] )->name('produkForm.tolak')->middleware('auth');
 // end umkm produk routes

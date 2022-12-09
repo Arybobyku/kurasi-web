@@ -387,10 +387,15 @@
                                                 </a>
                                             @endif
                                             @if (Auth::guard()->user()->level == 2)
-                                                <button type="submit" class="btn  btn-danger" title="Delete"
-                                                    onclick="return confirm('Are you sure want to delete this data?')">
+                                            <form action="{{ route('deleteumkm', $d->id) }}" method="post"
+                                                onsubmit="return confirm('Apakah anda sudah yakin menghapus data ini ?');"
+                                                class="pt-1">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn-sm btn-danger btn-iconr" title="Delete">
                                                     Hapus
                                                 </button>
+                                            </form>
                                             @endif
                                         @endif
 

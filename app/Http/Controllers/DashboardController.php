@@ -88,6 +88,17 @@ class DashboardController extends Controller
         //   echo asset('storage/app/5/yoOPOR8scE8BNIjAwDCt0YxDeDxDWBMaz4SxFkOr.txt');
     }
 
+    public function hapus($id){
+        if (Auth::guard()->user()->level == 2) {
+            Umkm::where('id', $id)->delete();
+            FormProduk::where('id_umkm', $id)->delete();
+            return redirect()->back()->with('success', 'Berhasil hapus data');
+        } else {
+            return redirect()->route('home');
+        }
+
+    }
+
 
     public function detail($id)
     {
