@@ -122,7 +122,10 @@
                                                 Diperiksa</span>
                                         @elseif ($d->status == 1)
                                             <span
-                                                class="label label-lg font-weight-bold label-light-success label-inline">Terverifikasi</span>
+                                                class="label label-lg font-weight-bold label-light-warning label-inline">Terverifikasi</span>
+                                        @elseif ($d->status == 2)
+                                            <span
+                                                class="label label-lg font-weight-bold label-light-success label-inline">Divalidasi</span>
                                         @else
                                             <span
                                                 class="label label-lg font-weight-bold label-light-danger label-inline">Ditolak</span>

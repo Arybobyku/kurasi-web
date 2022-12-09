@@ -34,6 +34,10 @@ Route::get('detail/{id}', [DashboardController::class,'detail'] )->name('detail'
 Route::post('/terima', [DashboardController::class,'terima'] )->name('terima.umkm')->middleware('auth');
 Route::post('/tolak', [DashboardController::class,'tolak'] )->name('tolak.umkm')->middleware('auth');
 
+
+Route::post('/terimaValidasi', [DashboardController::class,'terimaValidasi'] )->name('terimaValidasi.umkm')->middleware('auth');
+Route::post('/tolakValidasi', [DashboardController::class,'tolakValidasi'] )->name('tolakValidasi.umkm')->middleware('auth');
+
 Route::get('/verify/{token}', [RegisterController::class,'verif'] )->name('verify');
 
 // start umkm produk routes

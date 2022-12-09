@@ -15,6 +15,72 @@
 
 
             <div class="row">
+                {{-- Validas --}}
+
+
+                <div class="modal fade" id="tolakValidasiModal" tabindex="-1" role="dialog"
+                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Alasan Penolakan</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <i aria-hidden="true" class="ki ki-close"></i>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+
+                                <form method="POST" action="{{ route('tolakValidasi.umkm') }}">
+                                    {{ csrf_field() }}
+                                    <input type="hidden" id="idumkmValidasi" name="idumkm">
+                                    <textarea class="form-control" required name="catatan" id="catatan" placeholder="Alasan Penolakan"></textarea>
+
+
+
+
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-secondary" type="button" data-dismiss="modal">Tutup</button>
+                                <button type="Submit" name="Submit" class="btn btn-primary">Tolak Validasi</button>
+                            </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="terimaValidasiModal" tabindex="-1" role="dialog"
+                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Catatan</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <i aria-hidden="true" class="ki ki-close"></i>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+
+                                <form method="POST" action="{{ route('terimaValidasi.umkm') }}">
+                                    {{ csrf_field() }}
+                                    <input type="hidden" id="idterimaValidasi" name="idterima">
+                                    <textarea class="form-control" required name="catatan" id="catatan" placeholder="Catatan"></textarea>
+
+
+
+
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-secondary" type="button" data-dismiss="modal">Tutup</button>
+                                <button type="Submit" name="Submit" class="btn btn-primary">Validasi</button>
+                            </div>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                {{-- end Validasi --}}
 
                 <div class="modal fade" id="tolakModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
                     aria-hidden="true">
@@ -30,11 +96,9 @@
 
                                 <form method="POST" action="{{ route('tolak.umkm') }}">
                                     {{ csrf_field() }}
+
                                     <input type="hidden" id="idumkm" name="idumkm">
                                     <textarea class="form-control" required name="catatan" id="catatan" placeholder="Alasan Penolakan"></textarea>
-
-
-
 
                             </div>
                             <div class="modal-footer">
@@ -46,8 +110,8 @@
                     </div>
                 </div>
 
-                <div class="modal fade" id="terimaModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-                    aria-hidden="true">
+                <div class="modal fade" id="terimaModal" tabindex="-1" role="dialog"
+                    aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -74,7 +138,10 @@
                             </form>
                         </div>
                     </div>
+
                 </div>
+
+
                 <div class="col-xl-6">
                     <!--begin::Stats Widget 15-->
                     <a class="card card-custom bg-success bg-hover-state-success card-stretch gutter-b">
@@ -257,7 +324,10 @@
                                                 Diperiksa</span>
                                         @elseif ($d->status == 1)
                                             <span
-                                                class="label label-lg font-weight-bold label-light-success label-inline">Terverifikasi</span>
+                                                class="label label-lg font-weight-bold label-light-warning label-inline">Terverifikasi</span>
+                                        @elseif ($d->status == 2)
+                                            <span
+                                                class="label label-lg font-weight-bold label-light-success label-inline">Divalidasi</span>
                                         @else
                                             <span
                                                 class="label label-lg font-weight-bold label-light-danger label-inline">Ditolak</span>
@@ -282,6 +352,20 @@
                                             </a>
 
                                             <a class="btn  btn-danger tolak_btn" id="{{ $d->id }}"
+                                                title=" Edit Data ">
+                                                Tolak
+                                            </a>
+                                        @endif
+
+                                        @if (Auth::guard()->user()->level == 3)
+                                            @if ($d->status == 1)
+                                                <a class="btn btn-success terimaValidasi_btn" id="{{ $d->id }}"
+                                                    title=" Edit Data ">
+                                                    Validasi
+                                                </a>
+                                            @endif
+
+                                            <a class="btn  btn-danger tolakValidasi_btn" id="{{ $d->id }}"
                                                 title=" Edit Data ">
                                                 Tolak
                                             </a>

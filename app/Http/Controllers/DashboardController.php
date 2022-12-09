@@ -14,33 +14,49 @@ class DashboardController extends Controller
     //
     public function index()
     {
-        $status = 0;;
+        $umkm = [];
         if(Auth::guard()->user()->level == 1){
-            $status = 0;
+            $umkm = DB::table('umkm')->where('status',0)->get();
         }elseif(Auth::guard()->user()->level == 2){
-            $status = 3;
+            $umkm = DB::table('umkm')->where('status',3)->get();
         }elseif(Auth::guard()->user()->level == 3){
-            $status = 1;
+            $umkm = DB::table('umkm')->where('status',1)->orWhere('status',2)->get();
         }
+
         $anggota =  DB::table('anggota')->get();
-        $umkm = DB::table('umkm')->where('status',$status)->get();
-        $umkmverif = DB::table('umkm')->where("status","==", 1)->get();
+     
+        $umkmverif = DB::table('umkm')->where("status","==", 2)->get();
         return view('dashboard', ['verif'=>$umkmverif,'data' => $anggota, 'umkm' => $umkm]);
     }
 
     public function tolak(Request $request)
     {
 
-        $umkm = Umkm::find($request->idumkm)->update(['catatan' => $request->catatan, 'status' => 2]);
-        FormProduk::where('id_umkm',$request->idterima)->update(['status'=>2]);
+        $umkm = Umkm::find($request->idumkm)->update(['catatan' => $request->catatan, 'status' => 3]);
+        FormProduk::where('id_umkm',$request->idumkm)->update(['status'=>2]);
         return redirect()->back()->with('success', 'Data berhasil diperbarui');
     }
 
     public function terima(Request $request)
     {
-
         Umkm::find($request->idterima)->update(['catatan' => $request->catatan, 'status' => 1]);
         FormProduk::where('id_umkm',$request->idterima)->update(['status'=>1]);
+        return redirect()->back()->with('success', 'Data berhasil diperbarui');
+    }
+
+
+    public function terimaValidasi(Request $request)
+    {
+        Umkm::find($request->idterima)->update(['catatan' => $request->catatan, 'status' => 2]);
+        FormProduk::where('id_umkm',$request->idterima)->update(['status'=>2]);
+        return redirect()->back()->with('success', 'Data berhasil diperbarui');
+    }
+
+
+    public function tolakValidasi(Request $request)
+    {
+        Umkm::find($request->idumkm)->update(['catatan' => $request->catatan, 'status' => 3]);
+        FormProduk::where('id_umkm',$request->idumkm)->update(['status'=>3]);
         return redirect()->back()->with('success', 'Data berhasil diperbarui');
     }
 

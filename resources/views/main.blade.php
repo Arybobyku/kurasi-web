@@ -446,7 +446,7 @@
                 $('#tolakModal').modal('show')
 
 
-                //  console.log(id);
+                 console.log(id);
                 $('#idumkm').val(id);
 
 
@@ -457,12 +457,42 @@
 
                 var id = $(this).attr('id');
                 $('#terimaModal').modal('show')
-                //  console.log(id);
+                 console.log(id);
                 $('#idterima').val(id);
 
 
 
             });
+
+            // ------------
+
+
+            $(document).on('click', '.tolakValidasi_btn', function() {
+
+                var id = $(this).attr('id');
+                $('#tolakValidasiModal').modal('show')
+
+
+                //  console.log(id);
+                $('#idumkmValidasi').val(id);
+
+
+
+            });
+
+            $(document).on('click', '.terimaValidasi_btn', function() {
+
+                var id = $(this).attr('id');
+                $('#terimaValidasiModal').modal('show')
+                //  console.log(id);
+                $('#idterimaValidasi').val(id);
+
+
+
+            });
+
+
+            // ----------
 
             $(document).on('click', '.tolak_btn_produk', function() {
 
@@ -476,6 +506,8 @@
 
 
             });
+
+
 
             $(document).on('click', '.terima_btn_produk', function() {
 
