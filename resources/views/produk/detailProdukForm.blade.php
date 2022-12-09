@@ -32,7 +32,7 @@
                             <label for="">Jenis Produk</label>
                             <div>
                                 <div>
-                                    <input type="text" name="produk_kategori" value="{{ $produk->kategori->nama }}"
+                                    <input type="text" name="produk_kategori" value="{{ $produk->jenis_produk }}"
                                         id="" class="form-control" id="" disabled
                                         placeholder="Produk Kategori" disabled>
                                 </div>
@@ -140,22 +140,109 @@
                                     id="" class="form-control" placeholder="harga">
                             </div>
                         </div>
+                        <div class="form-group row">
+                            <div class="col-sm-4">
+                                <label>No. Sertifikat Halal
+                                    <span class="text-danger"></span></label>
+                                <input disabled type="text" name="no_halal" class="form-control" id="no_halal"
+                                    value="{{ $produk->no_halal }}" placeholder="No. Sertifikat Halal">
+                            </div>
+                            <div class="col-sm-4">
+                                <label>File Sertifikat Halal
+
+                                    <span class="text-danger"></span></label>
+                                <br>
+                                @if ($produk->file_halal == null)
+                                    <span class="text-danger">Sertifikat
+                                        Halal Tidak Tersedia</span>
+                                @else
+                                    <a href="{{ $produk->file_halal }}" target="_blank">Lihat Sertifikat
+                                        Halal</a>
+                                @endif
+
+                            </div>
+                            <div class="col-sm-4">
+                                <label>Berlaku Sampai
+                                    <span class="text-danger"></span></label>
+                                <input disabled type="date" name="tgl_halal" class="form-control" id="tgl_halal"
+                                    value="{{ $produk->tgl_halal }}" placeholder="No. Sertifikat Halal">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-sm-4">
+                                <label>No. Sertifikat BPOM
+                                    <span class="text-danger"></span></label>
+                                <input disabled type="text" name="no_bpom" class="form-control" id="no_bpom"
+                                    value="{{ $produk->no_bpom }}" placeholder="No. Sertifikat BPOM">
+                            </div>
+                            <div class="col-sm-4">
+                                <label>File Sertifikat BPOM
+
+                                    <span class="text-danger"></span></label>
+                                <br>
+                                @if ($produk->file_bpom == null)
+                                    <span class="text-danger">Sertifikat
+                                        BPOM Tidak Tersedia</span>
+                                @else
+                                    <a href="{{ $produk->file_bpom }}" target="_blank">Lihat Sertifikat
+                                        BPOM</a>
+                                @endif
+
+                            </div>
+                            <div class="col-sm-4">
+                                <label>Berlaku Sampai
+                                    <span class="text-danger"></span></label>
+                                <input disabled type="date" name="tgl_bpom" class="form-control" id="tgl_bpom"
+                                    value="{{ $produk->tgl_bpom }}" placeholder="No. Sertifikat BPOM">
+                            </div>
+                        </div>
+
+
+                        <div class="form-group row">
+                            <div class="col-sm-4">
+                                <label>No. PIRT
+                                    <span class="text-danger"></span></label>
+                                <input disabled type="text" name="no_pirt" class="form-control" id="no_pirt"
+                                    value="{{ $produk->no_pirt }}" placeholder="No. PIRT">
+                            </div>
+                            <div class="col-sm-4">
+                                <label>File PIRT
+
+                                    <span class="text-danger"></span></label>
+                                <br>
+                                @if ($produk->file_pirt == null)
+                                    <span class="text-danger">Sertifikat
+                                        PIRT Tidak Tersedia</span>
+                                @else
+                                    <a href="{{ $produk->file_pirt }}" target="_blank">Lihat Sertifikat
+                                        PIRT</a>
+                                @endif
+
+                            </div>
+                            <div class="col-sm-4">
+                                <label>Berlaku Sampai
+                                    <span class="text-danger"></span></label>
+                                <input disabled type="date" name="tgl_pirt" class="form-control" id="tgl_pirt"
+                                    value="{{ $produk->tgl_pirt }}" placeholder="No. PIRT">
+                            </div>
+                        </div>
                         <div class="form-group">
                             <label for="">Logo Halal</label>
                             <div>
-                                <input disabled type="text" value="{{ $produk->logo_halal }}" class="form-control">
+                                <input disabled type="text" value="{{ $produk->opt_logo_halal }}" class="form-control">
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="">Nomor Pirt</label>
                             <div>
-                                <input disabled type="text" value="{{ $produk->no_pirt }}" class="form-control">
+                                <input disabled type="text" value="{{ $produk->opt_no_pirt }}" class="form-control">
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="">Nomor BPOM</label>
                             <div>
-                                <input disabled type="text" value="{{ $produk->no_pirt }}" class="form-control">
+                                <input disabled type="text" value="{{ $produk->opt_no_pirt }}" class="form-control">
                             </div>
                         </div>
 

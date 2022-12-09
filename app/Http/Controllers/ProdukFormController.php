@@ -43,6 +43,23 @@ class ProdukFormController extends Controller
                 $image = asset('storage/app/' . $ttd);
                 $request['gambar'] = $image;
             }
+            if ($request->file('filehalal') != null) {
+                $ttd = $request->file('filehalal')->store("berkas");
+                $image = asset('storage/' . $ttd);
+                $request['file_halal'] = $image;
+            }
+
+            if ($request->file('filebpom') != null) {
+                $ttd = $request->file('filebpom')->store("berkas");
+                $image = asset('storage/' . $ttd);
+                $request['file_bpom'] = $image;
+            }
+
+            if ($request->file('filepirt') != null) {
+                $ttd = $request->file('filepirt')->store("berkas");
+                $image = asset('storage/' . $ttd);
+                $request['file_pirt'] = $image;
+            }
             $request['id_umkm'] = $request->id;
             $request['status'] = 0;
             FormProduk::create($request->all());
@@ -75,11 +92,30 @@ class ProdukFormController extends Controller
 
     public function updateProdukFormUMKM(Request $request)
     {
+
         if (Auth::guard()->user()->level == 2) {
             if ($request->file('file_gambar') != null) {
                 $ttd = $request->file('file_gambar')->store("formProduk");
                 $image = asset('storage/app/' . $ttd);
                 $request['gambar'] = $image;
+            }
+
+            if ($request->file('filehalal') != null) {
+                $ttd = $request->file('filehalal')->store("berkas");
+                $image = asset('storage/' . $ttd);
+                $request['file_halal'] = $image;
+            }
+
+            if ($request->file('filebpom') != null) {
+                $ttd = $request->file('filebpom')->store("berkas");
+                $image = asset('storage/' . $ttd);
+                $request['file_bpom'] = $image;
+            }
+
+            if ($request->file('filepirt') != null) {
+                $ttd = $request->file('filepirt')->store("berkas");
+                $image = asset('storage/' . $ttd);
+                $request['file_pirt'] = $image;
             }
             $request['status'] = 0;
 

@@ -30,11 +30,26 @@ class FormProduk extends Model
         "deskripsi",
         "kode_jenis",
         
-        "biaya_produksi",
-        "merk_produk",
-        "logo_halal",
+        "jenis_produk",
+
         "no_pirt",
         "no_bpom",
+        "no_halal",
+
+        "tgl_bpom",
+        "tgl_halal",
+        "tgl_pirt",
+
+        "file_bpom",
+        "file_halal",
+        "file_pirt",
+
+        "biaya_produksi",
+        
+        "opt_merk_produk",
+        "opt_logo_halal",
+        "opt_no_pirt",
+        "opt_no_bpom",
     
     ];
 

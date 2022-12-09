@@ -33,7 +33,7 @@ class DashboardController extends Controller
     {
 
         $umkm = Umkm::find($request->idumkm)->update(['catatan' => $request->catatan, 'status' => 3]);
-        FormProduk::where('id_umkm',$request->idumkm)->update(['status'=>2]);
+        FormProduk::where('id_umkm',$request->idumkm)->update(['status'=>3]);
         return redirect()->back()->with('success', 'Data berhasil diperbarui');
     }
 
@@ -125,24 +125,6 @@ class DashboardController extends Controller
                 $ttd = $request->file('filepirt')->store("berkas");
                 $image = asset('storage/' . $ttd);
                 $request['file_pirt'] = $image;
-            }
-
-            if ($request->file('filehalal') != null) {
-                $ttd = $request->file('filehalal')->store("berkas");
-                $image = asset('storage/' . $ttd);
-                $request['file_halal'] = $image;
-            }
-
-            if ($request->file('filebpom') != null) {
-                $ttd = $request->file('filebpom')->store("berkas");
-                $image = asset('storage/' . $ttd);
-                $request['file_bpom'] = $image;
-            }
-
-            if ($request->file('filebpom') != null) {
-                $ttd = $request->file('filebpom')->store("berkas");
-                $image = asset('storage/' . $ttd);
-                $request['file_bpom'] = $image;
             }
 
             if ($request->file('filehaki') != null) {

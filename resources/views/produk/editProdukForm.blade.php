@@ -29,18 +29,10 @@
                     {{-- start Form Based on Category Product --}}
                     <div class="card-body">
                         <div class="form-group">
-                            <label for="">Jenis Produk <span class="text-danger">*</span> </label>
+                            <label for="">Jenis Produk<span class="text-danger">*</span> </label>
                             <div>
-                                <select class="form-control select2bs4" style="width: 100%;" name="kode_jenis"
-                                    id="jenis_produk" placeholder="Pilih Substansi Data" required>
-                                    <option value="{{ $produk->kode_jenis }}">Pilih jenis Produk</option>
-                                    {{ $no = 1 }}
-                                    @foreach ($jenis as $p)
-                                        <option value="{{ $p->kode_jenis }}">
-                                            {{ $no }}. {{ $p->nama }}</option>
-                                        {{ $no++ }}
-                                    @endforeach
-                                </select>
+                                <input type="text" name="jenis_produk" value="{{$produk->jenis_produk}}" required class="form-control"
+                                    placeholder="Jenis Produk">
                             </div>
                         </div>
                         <div class="form-group">
@@ -159,17 +151,80 @@
                                     class="form-control" id="" placeholder="{{ $produk->harga }}" disabled>
                             </div>
                         </div>
+                        <div class="form-group row">
+                            <div class="col-sm-4">
+                                <label>No. Sertifikat Halal
+                                    <span class="text-danger"></span></label>
+                                <input type="text" name="no_halal" class="form-control" id="no_halal"
+                                    value="{{ $produk->no_halal }}" placeholder="No. Sertifikat Halal">
+                            </div>
+                            <div class="col-sm-4">
+                                <label>File Sertifikat Halal
+                                    <span class="text-danger"></span></label>
+                                <input type="file" name="filehalal" class="form-control" id="filehalal"
+                                    value="" placeholder="Nomor Sertifikat Halal">
+                            </div>
+                            <div class="col-sm-4">
+                                <label>Berlaku Sampai
+                                    <span class="text-danger"></span></label>
+                                <input type="date" name="tgl_halal" class="form-control" id="tgl_halal"
+                                    value="{{ $produk->tgl_halal }}" placeholder="No. Sertifikat Halal">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-sm-4">
+                                <label>No. Sertifikat BPOM
+                                    <span class="text-danger"></span></label>
+                                <input type="text" name="no_bpom" class="form-control" id="no_bpom"
+                                    value="{{ $produk->no_bpom }}" placeholder="No. Sertifikat BPOM">
+                            </div>
+                            <div class="col-sm-4">
+                                <label>File Sertifikat BPOM
+                                    <span class="text-danger"></span></label>
+                                <input type="file" name="filebpom" class="form-control" id="filebpom"
+                                    value="" placeholder="Nomor Sertifikat BPOM">
+                            </div>
+                            <div class="col-sm-4">
+                                <label>Berlaku Sampai
+                                    <span class="text-danger"></span></label>
+                                <input type="date" name="tgl_bpom" class="form-control" id="tgl_bpom"
+                                    value="{{ $produk->tgl_bpom }}" placeholder="No. Sertifikat BPOM">
+                            </div>
+                        </div>
+
+
+                        <div class="form-group row">
+                            <div class="col-sm-4">
+                                <label>No. PIRT
+                                    <span class="text-danger"></span></label>
+                                <input type="text" name="no_pirt" class="form-control" id="no_pirt"
+                                    value="{{ $produk->no_pirt }}" placeholder="No. PIRT">
+                            </div>
+                            <div class="col-sm-4">
+                                <label>File PIRT
+                                    <span class="text-danger"></span></label>
+                                <input type="file" name="filepirt" class="form-control" id="filepirt"
+                                    value="" placeholder="Nomor PIRT">
+                            </div>
+                            <div class="col-sm-4">
+                                <label>Berlaku Sampai
+                                    <span class="text-danger"></span></label>
+                                <input type="date" name="tgl_pirt" class="form-control" id="tgl_pirt"
+                                    value="{{ $produk->tgl_pirt }}" placeholder="No. PIRT">
+                            </div>
+                        </div>
                         {{-- radio button --}}
                         <div class=" form-group">
                             <label for="">Merek Produk</label>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" value="iya" name="merk_produk">
+                                <input class="form-check-input" type="radio" value="iya" name="opt_merk_produk">
                                 <label class="form-check-label" for="flexRadioDefault1">
                                     Iya
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" value="tidak" name="merk_produk"
+                                <input class="form-check-input" type="radio" value="tidak" name="opt_merk_produk"
                                     checked>
                                 <label class="form-check-label" for="flexRadioDefault2">
                                     Tidak
@@ -182,13 +237,13 @@
                         <div class=" form-group">
                             <label for="">Logo Halal Produk</label>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" value="iya" name="logo_halal">
+                                <input class="form-check-input" type="radio" value="iya" name="opt_logo_halal">
                                 <label class="form-check-label" for="flexRadioDefault1">
                                     Iya
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" value="tidak" name="logo_halal" checked>
+                                <input class="form-check-input" type="radio" value="tidak" name="opt_logo_halal" checked>
                                 <label class="form-check-label" for="flexRadioDefault2">
                                     Tidak
                                 </label>
@@ -201,13 +256,13 @@
                         <div class=" form-group">
                             <label for="">Nomor Pirt</label>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" value="iya" name="no_pirt">
+                                <input class="form-check-input" type="radio" value="iya" name="opt_no_pirt">
                                 <label class="form-check-label" for="flexRadioDefault1">
                                     Iya
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" value="tidak" name="no_pirt" checked>
+                                <input class="form-check-input" type="radio" value="tidak" name="opt_no_pirt" checked>
                                 <label class="form-check-label" for="flexRadioDefault2">
                                     Tidak
                                 </label>

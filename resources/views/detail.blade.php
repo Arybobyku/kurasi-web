@@ -36,15 +36,16 @@
                         <div class="form-group">
                             <label>Nama
                                 <span class="text-danger">*</span></label>
-                            <input disabled type="text" name="pemilik" id="" required class="form-control" id=""
-                                value="{{ $umkm->pemilik }}" placeholder="Nama">
+                            <input disabled type="text" name="pemilik" id="" required class="form-control"
+                                id="" value="{{ $umkm->pemilik }}" placeholder="Nama">
                         </div>
 
                         <div class="form-group">
                             <label>Alamat Pemilik
                                 <span class="text-danger">*</span></label>
-                            <input disabled type="text" name="alamat_pemilik" id="" required class="form-control"
-                                id="" value="{{ $umkm->alamat_pemilik }}" placeholder="Alamat Pemilik">
+                            <input disabled type="text" name="alamat_pemilik" id="" required
+                                class="form-control" id="" value="{{ $umkm->alamat_pemilik }}"
+                                placeholder="Alamat Pemilik">
                         </div>
 
                         <div class="form-group row">
@@ -88,15 +89,15 @@
                         <div class="form-group">
                             <label>No Hp
                                 <span class="text-danger">*</span></label>
-                            <input disabled type="text" name="nohp" id="" required class="form-control" id=""
-                                value="{{ $umkm->nohp }}" placeholder="No Hp">
+                            <input disabled type="text" name="nohp" id="" required class="form-control"
+                                id="" value="{{ $umkm->nohp }}" placeholder="No Hp">
                         </div>
 
                         <div class="form-group">
                             <label>No KTP
                                 <span class="text-danger">*</span></label>
-                            <input disabled type="text" name="noktp" id="" required class="form-control" id=""
-                                value="{{ $umkm->noktp }}" placeholder="No KTP">
+                            <input disabled type="text" name="noktp" id="" required class="form-control"
+                                id="" value="{{ $umkm->noktp }}" placeholder="No KTP">
                         </div>
 
 
@@ -106,8 +107,8 @@
                         <div class="form-group">
                             <label>Nama UMKM
                                 <span class="text-danger">*</span></label>
-                            <input disabled type="text" name="nama" id="" required class="form-control" id=""
-                                value="{{ $umkm->nama }}" placeholder="Nama UMKM">
+                            <input disabled type="text" name="nama" id="" required class="form-control"
+                                id="" value="{{ $umkm->nama }}" placeholder="Nama UMKM">
                         </div>
                         <div class="form-group row">
                             <div class="col-sm-4">
@@ -141,125 +142,12 @@
                         <div class="form-group">
                             <label for="">Alamat UMKM</label>
                             <div>
-                                <input disabled type="text" name="alamat_umkm" id="" required class="form-control"
-                                    id="" value="{{ $umkm->alamat_umkm }}" placeholder="Alamat UMKM">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="">Jenis Produk</label>
-                            <div>
-                                <select class="form-control select2bs4" style="width: 100%;" name="jenis_produk"
-                                    id="jenis_produk" placeholder="Pilih Substansi Data" required>
-                                    <option value="">Pilih jenis Produk</option>
-                                    {{ $no = 1 }}
-                                    @foreach ($jenis as $p)
-                                        @if ($p->id == $umkm->jenis_produk)
-                                            <option value="{{ $p->id }}" selected>
-                                                {{ $no }}. {{ $p->nama }}</option>
-                                        @else
-                                            <option value="{{ $p->id }}">
-                                                {{ $no }}. {{ $p->nama }}</option>
-                                        @endif
-                                        {{ $no++ }}
-                                    @endforeach
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="">Deskripsi Produk</label>
-                            <div>
-                                <input disabled type="text" name="deskripsi_produk" id="" required
-                                    class="form-control" id="" value="{{ $umkm->deskripsi_produk }}"
-                                    placeholder="Deskripsi Produk">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <div class="col-sm-4">
-                                <label>No. Sertifikat Halal
-                                    <span class="text-danger"></span></label>
-                                <input disabled type="text" name="no_halal" class="form-control" id="no_halal"
-                                    value="{{ $umkm->no_halal }}" placeholder="No. Sertifikat Halal">
-                            </div>
-                            <div class="col-sm-4">
-                                <label>File Sertifikat Halal
-
-                                    <span class="text-danger"></span></label>
-                                <br>
-                                @if ($umkm->file_halal == null)
-                                    <span class="text-danger">Sertifikat
-                                        Halal Tidak Tersedia</span>
-                                @else
-                                    <a href="{{ $umkm->file_halal }}" target="_blank">Lihat Sertifikat
-                                        Halal</a>
-                                @endif
-
-                            </div>
-                            <div class="col-sm-4">
-                                <label>Berlaku Sampai
-                                    <span class="text-danger"></span></label>
-                                <input disabled type="date" name="tgl_halal" class="form-control" id="tgl_halal"
-                                    value="{{ $umkm->tgl_halal }}" placeholder="No. Sertifikat Halal">
+                                <input disabled type="text" name="alamat_umkm" id="" required
+                                    class="form-control" id="" value="{{ $umkm->alamat_umkm }}"
+                                    placeholder="Alamat UMKM">
                             </div>
                         </div>
 
-                        <div class="form-group row">
-                            <div class="col-sm-4">
-                                <label>No. Sertifikat BPOM
-                                    <span class="text-danger"></span></label>
-                                <input disabled type="text" name="no_bpom" class="form-control" id="no_bpom"
-                                    value="{{ $umkm->no_bpom }}" placeholder="No. Sertifikat BPOM">
-                            </div>
-                            <div class="col-sm-4">
-                                <label>File Sertifikat BPOM
-
-                                    <span class="text-danger"></span></label>
-                                <br>
-                                @if ($umkm->file_bpom == null)
-                                    <span class="text-danger">Sertifikat
-                                        BPOM Tidak Tersedia</span>
-                                @else
-                                    <a href="{{ $umkm->file_bpom }}" target="_blank">Lihat Sertifikat
-                                        BPOM</a>
-                                @endif
-
-                            </div>
-                            <div class="col-sm-4">
-                                <label>Berlaku Sampai
-                                    <span class="text-danger"></span></label>
-                                <input disabled type="date" name="tgl_bpom" class="form-control" id="tgl_bpom"
-                                    value="{{ $umkm->tgl_bpom }}" placeholder="No. Sertifikat BPOM">
-                            </div>
-                        </div>
-
-
-                        <div class="form-group row">
-                            <div class="col-sm-4">
-                                <label>No. PIRT
-                                    <span class="text-danger"></span></label>
-                                <input disabled type="text" name="no_pirt" class="form-control" id="no_pirt"
-                                    value="{{ $umkm->no_pirt }}" placeholder="No. PIRT">
-                            </div>
-                            <div class="col-sm-4">
-                                <label>File PIRT
-
-                                    <span class="text-danger"></span></label>
-                                <br>
-                                @if ($umkm->file_pirt == null)
-                                    <span class="text-danger">Sertifikat
-                                        PIRT Tidak Tersedia</span>
-                                @else
-                                    <a href="{{ $umkm->file_pirt }}" target="_blank">Lihat Sertifikat
-                                        PIRT</a>
-                                @endif
-
-                            </div>
-                            <div class="col-sm-4">
-                                <label>Berlaku Sampai
-                                    <span class="text-danger"></span></label>
-                                <input disabled type="date" name="tgl_pirt" class="form-control" id="tgl_pirt"
-                                    value="{{ $umkm->tgl_pirt }}" placeholder="No. PIRT">
-                            </div>
-                        </div>
 
                         <br>
                         No. Sertifikasi HAKI
@@ -309,30 +197,30 @@
                         <div class="form-group">
                             <label for="">Nilai Asset</label>
                             <div>
-                                <input disabled type="text" name="nilai_asset" required class="form-control" id=""
-                                    value="{{ $umkm->nilai_asset }}" placeholder="Nilai Asset">
+                                <input disabled type="text" name="nilai_asset" required class="form-control"
+                                    id="" value="{{ $umkm->nilai_asset }}" placeholder="Nilai Asset">
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="">Omset Pertahun</label>
                             <div>
-                                <input disabled type="text" name="omset" required class="form-control" id=""
-                                    value="{{ $umkm->omset }}" placeholder="Omset Pertahun">
+                                <input disabled type="text" name="omset" required class="form-control"
+                                    id="" value="{{ $umkm->omset }}" placeholder="Omset Pertahun">
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="">Jumlah Karyawan</label>
                             <div>
-                                <input disabled type="text" name="karyawan" required class="form-control" id=""
-                                    value="{{ $umkm->karyawan }}" placeholder="Jumlah Karyawan">
+                                <input disabled type="text" name="karyawan" required class="form-control"
+                                    id="" value="{{ $umkm->karyawan }}" placeholder="Jumlah Karyawan">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label for="">Email</label>
                             <div>
-                                <input disabled type="email" name="email" required class="form-control" id=""
-                                    value="{{ $umkm->email }}" placeholder="Email">
+                                <input disabled type="email" name="email" required class="form-control"
+                                    id="" value="{{ $umkm->email }}" placeholder="Email">
                             </div>
                         </div>
 
@@ -364,8 +252,8 @@
                             <div class="col-sm-2">
                                 <label>Youtube
                                     <span class="text-danger"></span></label>
-                                <input disabled type="text" name="youtube" id="" class="form-control" id=""
-                                    value="{{ $umkm->youtube }}" placeholder="Youtube">
+                                <input disabled type="text" name="youtube" id="" class="form-control"
+                                    id="" value="{{ $umkm->youtube }}" placeholder="Youtube">
                             </div>
                             <div class="col-sm-2">
                                 <label>Lain-Lain
@@ -391,8 +279,8 @@
                             <div class="col-sm-2">
                                 <label>Shopee
                                     <span class="text-danger"></span></label>
-                                <input disabled type="text" name="shopee" id="" class="form-control" id=""
-                                    value="{{ $umkm->shopee }}" placeholder="Shopee">
+                                <input disabled type="text" name="shopee" id="" class="form-control"
+                                    id="" value="{{ $umkm->shopee }}" placeholder="Shopee">
                             </div>
                             <div class="col-sm-2">
                                 <label>Tokopedia
@@ -403,20 +291,20 @@
                             <div class="col-sm-2">
                                 <label>LPSE
                                     <span class="text-danger"></span></label>
-                                <input disabled type="text" name="lpse" id="" class="form-control" id=""
-                                    value="{{ $umkm->lpse }}" placeholder="LPSE">
+                                <input disabled type="text" name="lpse" id="" class="form-control"
+                                    id="" value="{{ $umkm->lpse }}" placeholder="LPSE">
                             </div>
                             <div class="col-sm-2">
                                 <label>M BIZ Market
                                     <span class="text-danger"></span></label>
-                                <input disabled type="text" name="mbiz" id="" class="form-control" id=""
-                                    value="{{ $umkm->mbiz }}" placeholder="M BIZ Market">
+                                <input disabled type="text" name="mbiz" id="" class="form-control"
+                                    id="" value="{{ $umkm->mbiz }}" placeholder="M BIZ Market">
                             </div>
                             <div class="col-sm-4">
                                 <label>Lain-Lain
                                     <span class="text-danger"></span></label>
-                                <input disabled type="text" name="lain" id="" class="form-control" id=""
-                                    value="{{ $umkm->lain }}" placeholder="Lain-Lain">
+                                <input disabled type="text" name="lain" id="" class="form-control"
+                                    id="" value="{{ $umkm->lain }}" placeholder="Lain-Lain">
                             </div>
 
                         </div>
