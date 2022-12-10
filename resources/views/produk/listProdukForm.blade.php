@@ -90,8 +90,8 @@
                         <thead>
                             <tr>
                                 <th style="width: 5%">No</th>
-                                <th>Kategori</th>
-                                <th>Bahan Baku</th>
+                                <th>Jenis Produk</th>
+                                <th>Kategori Produk</th>
                                 <th>Gambar</th>
                                 <th>Status</th>
 
@@ -109,8 +109,8 @@
                             @foreach ($produk as $d)
                                 <tr>
                                     <td style=" width:5%">{{ $nomor }}</td>
+                                    <td>{{ $d->jenis_produk }}</td>
                                     <td>{{ $d->kategori->nama }}</td>
-                                    <td>{{ $d->bahan_baku }}</td>
                                     <td>
                                         <img height="100" width="100" src="{{ $d->gambar }}" />
                                     </td>

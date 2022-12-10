@@ -25,8 +25,14 @@ class DashboardController extends Controller
 
         $anggota =  DB::table('anggota')->get();
      
-        $umkmverif = DB::table('umkm')->where("status","==", 2)->get();
-        return view('dashboard', ['verif'=>$umkmverif,'data' => $anggota, 'umkm' => $umkm]);
+        $umkmverif = DB::table('umkm')->where("status", 2)->get();
+        $totalUmkm =  DB::table('umkm')->get();
+        return view('dashboard', [
+            'verif'=>$umkmverif,
+            'data' => $anggota,
+            'umkm' => $umkm,
+            'totalUmkm'=>count($totalUmkm),
+        ]);
     }
 
     public function tolak(Request $request)

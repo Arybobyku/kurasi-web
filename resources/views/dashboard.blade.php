@@ -151,9 +151,9 @@
                                 <!--begin::Svg Icon | path:assets/media/svg/icons/Media/Equalizer.svg-->
                                 <i class="fas fa-users icon-3x" style="color: white"></i>
                                 <!--end::Svg Icon-->
-                            </span>
+                            </span> 
                             <div class="text-inverse-success font-weight-bolder font-size-h5 mb-2 mt-5">
-                                {{ count($umkm) }}</div>
+                                {{ $totalUmkm }}</div>
                             <div class="font-weight-bold text-inverse-success font-size-sm">Total
                                 UMKM Terdaftar</div>
                         </div>
@@ -176,7 +176,7 @@
                             <div class="text-inverse-success font-weight-bolder font-size-h5 mb-2 mt-5">
                                 {{ count($verif) }}</div>
                             <div class="font-weight-bold text-inverse-success font-size-sm">Total
-                                UMKM Terverifikasi</div>
+                                UMKM Divalidasi</div>
                         </div>
                         <!--end::Body-->
                     </a>
@@ -294,7 +294,6 @@
                                 <th>NIB</th>
                                 <th>Pemilik</th>
                                 <th>Alamat UMKM</th>
-                                <th>Jenis Produk</th>
                                 <th>Status</th>
                                 <th>Catatan</th>
 
@@ -316,7 +315,6 @@
                                     <td>{{ $d->nib }}</td>
                                     <td>{{ $d->pemilik }}</td>
                                     <td>{{ $d->alamat_umkm }}</td>
-                                    <td>{{ $d->jenis_produk }}</td>
                                     <td>
                                         @if ($d->status == 0)
                                             <span
