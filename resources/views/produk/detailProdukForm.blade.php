@@ -294,7 +294,7 @@
                             </div>
                         </div>
 
-                        @if ($produk->barcode != null)
+                        @if ($produk->barcode != null && Auth::guard()->user()->level == 3)
                             {{-- Form Pernyataan --}}
                             <i class="btn btn-sm btn-info btn-icon edit_btn" title="Print">
                                 <i class="la la-print" onclick="printDiv('suratPernyataan')"></i>
