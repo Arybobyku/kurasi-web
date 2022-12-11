@@ -50,6 +50,11 @@ class FormProduk extends Model
         "opt_logo_halal",
         "opt_no_pirt",
         "opt_no_bpom",
+
+        "merek_dagang",
+        "hak_cipta",
+        "file_haki",
+        "tgl_haki",
     
     ];
 

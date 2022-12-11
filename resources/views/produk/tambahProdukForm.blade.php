@@ -225,6 +225,48 @@
                                     value="" placeholder="No. PIRT">
                             </div>
                         </div>
+
+                        <hr>
+                        <br>
+                        No. Sertifikasi HAKI
+                        <br>
+                        <br>
+
+                        <div class="form-group row">
+
+                            <div class="col-sm-6">
+                                <label>Merek Dagang
+                                    <span class="text-danger"></span></label>
+                                <input type="text" name="merek_dagang" class="form-control" id=""
+                                    value="" placeholder="Merek Dagang">
+                            </div>
+                            <div class="col-sm-6">
+                                <label>Hak Cipta
+                                    <span class="text-danger"></span></label>
+                                <input type="text" name="hak_cipta" class="form-control" id=""
+                                    value="" placeholder="Hak Cipta">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+
+                            <div class="col-sm-6">
+                                <label>Sertifikat Haki
+                                    <span class="text-danger"></span></label>
+                                <input type="file" name="filehaki" class="form-control" id=""
+                                    value="" placeholder="Merek Dagang">
+                            </div>
+                            <div class="col-sm-6">
+                                <label>Berlaku Sampai
+                                    <span class="text-danger"></span></label>
+                                <input type="date" name="tgl_haki" class="form-control" id=""
+                                    value="" placeholder="Hak Cipta">
+                            </div>
+                        </div>
+                        <hr>
+                        <br>
+
+
                         {{-- radio button --}}
                         <div class=" form-group">
                             <label for="">Merek Produk</label>
@@ -287,13 +329,13 @@
                         <div class=" form-group">
                             <label for="">Nomor BPOM <span>(Khusus produk frozen, herbal, susu, dikemas didalam kaleng)</span></label>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" value="1" name="opt_no_bpom">
+                                <input class="form-check-input" type="radio" value="iya" name="opt_no_bpom">
                                 <label class="form-check-label" for="flexRadioDefault1">
                                     Iya
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" value="0" name="opt_no_bpom" checked>
+                                <input class="form-check-input" type="radio" value="tidak" name="opt_no_bpom" checked>
                                 <label class="form-check-label" for="flexRadioDefault2">
                                     Tidak
                                 </label>

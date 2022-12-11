@@ -40,7 +40,7 @@ class ProdukFormController extends Controller
         if (Auth::guard()->user()->level == 2) {
             if ($request->file('file_gambar') != null) {
                 $ttd = $request->file('file_gambar')->store("form-produk");
-                $image = asset('storage/app/' . $ttd);
+                $image = asset('storage/' . $ttd);
                 $request['gambar'] = $image;
             }
             if ($request->file('filehalal') != null) {
@@ -60,6 +60,13 @@ class ProdukFormController extends Controller
                 $image = asset('storage/' . $ttd);
                 $request['file_pirt'] = $image;
             }
+
+            if ($request->file('filehaki') != null) {
+                $ttd = $request->file('filehaki')->store("berkas");
+                $image = asset('storage/' . $ttd);
+                $request['file_haki'] = $image;
+            }
+            
             $request['id_umkm'] = $request->id;
             $request['status'] = 0;
             FormProduk::create($request->all());
@@ -95,11 +102,10 @@ class ProdukFormController extends Controller
 
         if (Auth::guard()->user()->level == 2) {
             if ($request->file('file_gambar') != null) {
-                $ttd = $request->file('file_gambar')->store("formProduk");
-                $image = asset('storage/app/' . $ttd);
+                $ttd = $request->file('file_gambar')->store("form-produk");
+                $image = asset('storage/' . $ttd);
                 $request['gambar'] = $image;
             }
-
             if ($request->file('filehalal') != null) {
                 $ttd = $request->file('filehalal')->store("berkas");
                 $image = asset('storage/' . $ttd);
@@ -116,6 +122,12 @@ class ProdukFormController extends Controller
                 $ttd = $request->file('filepirt')->store("berkas");
                 $image = asset('storage/' . $ttd);
                 $request['file_pirt'] = $image;
+            }
+
+            if ($request->file('filehaki') != null) {
+                $ttd = $request->file('filehaki')->store("berkas");
+                $image = asset('storage/' . $ttd);
+                $request['file_haki'] = $image;
             }
             $request['status'] = 0;
 

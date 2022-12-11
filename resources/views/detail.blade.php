@@ -149,51 +149,6 @@
                         </div>
 
 
-                        <br>
-                        No. Sertifikasi HAKI
-                        <br>
-                        <br>
-                        <div class="form-group row">
-
-                            <div class="col-sm-6">
-                                <label>Merek Dagang
-                                    <span class="text-danger"></span></label>
-                                <input disabled type="text" name="merek_dagang" class="form-control" id=""
-                                    value="{{ $umkm->merek_dagang }}" placeholder="Merek Dagang">
-                            </div>
-                            <div class="col-sm-6">
-                                <label>Hak Cipta
-                                    <span class="text-danger"></span></label>
-                                <input disabled type="text" name="hak_cipta" class="form-control" id=""
-                                    value="{{ $umkm->hak_cipta }}" placeholder="Hak Cipta">
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-
-                            <div class="col-sm-6">
-                                <label>Sertifikat Haki
-
-                                    <span class="text-danger"></span></label>
-                                <br>
-                                @if ($umkm->file_haki == null)
-                                    <span class="text-danger">Sertifikat
-                                        HAKI Tidak Tersedia</span>
-                                @else
-                                    <a href="{{ $umkm->file_haki }}" target="_blank">Lihat Sertifikat
-                                        HAKI</a>
-                                @endif
-
-                            </div>
-                            <div class="col-sm-6">
-                                <label>Berlaku Sampai
-                                    <span class="text-danger"></span></label>
-                                <input disabled type="date" name="tgl_haki" class="form-control" id=""
-                                    value="{{ $umkm->tgl_haki }}" placeholder="Hak Cipta">
-                            </div>
-                        </div>
-
-
                         <div class="form-group">
                             <label for="">Nilai Asset</label>
                             <div>

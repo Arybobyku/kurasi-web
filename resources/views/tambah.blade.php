@@ -166,46 +166,7 @@
                                     class="form-control" id="" value="" placeholder="Deskripsi Produk">
                             </div>
                         </div> --}}
-                        <hr>
-                        <br>
-                        No. Sertifikasi HAKI
-                        <br>
-                        <br>
-
-                        <div class="form-group row">
-
-                            <div class="col-sm-6">
-                                <label>Merek Dagang
-                                    <span class="text-danger"></span></label>
-                                <input type="text" name="merek_dagang" class="form-control" id=""
-                                    value="" placeholder="Merek Dagang">
-                            </div>
-                            <div class="col-sm-6">
-                                <label>Hak Cipta
-                                    <span class="text-danger"></span></label>
-                                <input type="text" name="hak_cipta" class="form-control" id=""
-                                    value="" placeholder="Hak Cipta">
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-
-                            <div class="col-sm-6">
-                                <label>Sertifikat Haki
-                                    <span class="text-danger"></span></label>
-                                <input type="file" name="filehaki" class="form-control" id=""
-                                    value="" placeholder="Merek Dagang">
-                            </div>
-                            <div class="col-sm-6">
-                                <label>Berlaku Sampai
-                                    <span class="text-danger"></span></label>
-                                <input type="date" name="tgl_haki" class="form-control" id=""
-                                    value="" placeholder="Hak Cipta">
-                            </div>
-                        </div>
-                        <hr>
-                        <br>
-
+                      
                         <div class="form-group">
                             <label for="">Nilai Asset</label>
                             <div>

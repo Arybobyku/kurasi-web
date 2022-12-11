@@ -18,7 +18,7 @@ class DashboardController extends Controller
         if(Auth::guard()->user()->level == 1){
             $umkm = DB::table('umkm')->where('status',0)->get();
         }elseif(Auth::guard()->user()->level == 2){
-            $umkm = DB::table('umkm')->where('status',3)->get();
+            $umkm = DB::table('umkm')->where('status','!=',0)->get();
         }elseif(Auth::guard()->user()->level == 3){
             $umkm = DB::table('umkm')->where('status',1)->orWhere('status',2)->get();
         }
@@ -127,21 +127,7 @@ class DashboardController extends Controller
                 $request['file_nib'] = $image;
             }
 
-            if ($request->file('filepirt') != null) {
-                $ttd = $request->file('filepirt')->store("berkas");
-                $image = asset('storage/' . $ttd);
-                $request['file_pirt'] = $image;
-            }
-
-            if ($request->file('filehaki') != null) {
-                $ttd = $request->file('filehaki')->store("berkas");
-                $image = asset('storage/' . $ttd);
-                $request['file_haki'] = $image;
-            }
-
             $request['ttl'] = $request->tempat . ',' . $request->tanggal;
-
-
 
             $umkm =  Umkm::create($request->all());
             $result = Umkm::where('id',$umkm->id)->update(array("kode_umkm"=>"00".$umkm->id));
