@@ -126,6 +126,11 @@ class DashboardController extends Controller
                 $image = asset('storage/' . $ttd);
                 $request['file_nib'] = $image;
             }
+            if ($request->file('logoumkm') != null) {
+                $ttd = $request->file('logoumkm')->store("berkas");
+                $image = asset('storage/' . $ttd);
+                $request['logo_umkm'] = $image;
+            }
 
             $request['ttl'] = $request->tempat . ',' . $request->tanggal;
 

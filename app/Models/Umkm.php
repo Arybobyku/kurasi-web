@@ -61,6 +61,7 @@ class Umkm extends Model
         'catatan',
         'kode_kota',
         'kode_umkm',
+        'logo_umkm',
     
     ];
 
@@ -68,5 +69,9 @@ class Umkm extends Model
 
     public function kota(){
         return $this->belongsTo(Kota::class,'kode_kota','id');
+    }
+
+    public function formProduk(){
+        return $this->hasMany(FormProduk::class,'id_umkm','id');
     }
 }

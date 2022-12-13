@@ -159,7 +159,7 @@ class ApiController extends Controller
     }
 
     public function get_umkm(){
-        $data = DB::table("umkm")->where("deleted",'=','0')->get();
+        $data = Umkm::where("deleted",'=','0')->with('formProduk')->get();
         return response()->json($data);
     }
     

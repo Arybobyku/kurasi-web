@@ -95,6 +95,12 @@
                         <h5>Detail Usaha</h5>
                         <hr>
                         <div class="form-group">
+                            <label>Logo UMKM
+                                <span class="text-danger">*</span></label>
+                            <input type="file" id="" required class="form-control" id=""
+                                value="" name="logoumkm" placeholder="logo">
+                        </div>
+                        <div class="form-group">
                             <label>Nama UMKM
                                 <span class="text-danger">*</span></label>
                             <input type="text" name="nama" id="" required class="form-control" id=""

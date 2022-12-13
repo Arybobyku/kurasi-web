@@ -105,6 +105,13 @@
                         <h5>Detail Usaha</h5>
                         <hr>
                         <div class="form-group">
+                            <label>Logo UMKM</label>
+                            <div>
+                                <img height="250" width="250" src="{{ $umkm->logo_umkm }}" />
+
+                            </div>
+                        </div>
+                        <div class="form-group">
                             <label>Nama UMKM
                                 <span class="text-danger">*</span></label>
                             <input disabled type="text" name="nama" id="" required class="form-control"
