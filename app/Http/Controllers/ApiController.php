@@ -479,7 +479,7 @@ class ApiController extends Controller
     }
 
     public function getAllKurasiValid(){
-        $kurasi = Umkm::where('status',2)->get();
+        $kurasi = Umkm::where('status',2)->with('formProduk')->get();
         return response()->json($kurasi);
     }
 
