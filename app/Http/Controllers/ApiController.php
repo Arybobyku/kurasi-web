@@ -159,7 +159,7 @@ class ApiController extends Controller
     }
 
     public function get_umkm(){
-        $data = Umkm::where("deleted",'=','0')->with('formProduk')->get();
+        $data = Umkm::where("deleted",'=','0')->with('formProduk.kategori')->get();
         return response()->json($data);
     }
     
@@ -479,7 +479,7 @@ class ApiController extends Controller
     }
 
     public function getAllKurasiValid(){
-        $kurasi = Umkm::where('status',2)->with('formProduk')->get();
+        $kurasi = Umkm::where('status',2)->with('formProduk.kategori')->get();
         return response()->json($kurasi);
     }
 
