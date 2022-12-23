@@ -393,8 +393,9 @@
         var result = 0;
         function calculate() {
             var a = document.getElementById("biaya_produksi").value;
-            result = (100 / (100 - 5)) * a;
-            document.getElementById("harga").value = Math.ceil(result);
+            var x =  (100 / (100 - 5)) * a;
+            result = Math.ceil(x);
+            document.getElementById("harga").value = Math.ceil(x);
         }
 
         $('#pernyataan').click(function() {
