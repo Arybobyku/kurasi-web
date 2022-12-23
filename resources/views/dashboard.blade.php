@@ -115,7 +115,7 @@
                     <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Catatan</h5>
+                                <h5 class="modal-title" id="exampleModalLabel">Verifikasi</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <i aria-hidden="true" class="ki ki-close"></i>
                                 </button>
@@ -125,9 +125,39 @@
                                 <form method="POST" action="{{ route('terima.umkm') }}">
                                     {{ csrf_field() }}
                                     <input type="hidden" id="idterima" name="idterima">
+
+                                    {{-- Form Pernyataan --}}
+                                    <div class="card my-2 p-10">
+                                        <center>
+                                            <h1><b>SURAT PERNYATAAN <br>
+                                                    Verifikator</b></h1>
+                                        </center>
+                                        <br>
+                                        <br>
+                                        
+                                        <h3>
+                                            Dengan ini menyatakan dengan sebenar-benarnya bahwa seluruh
+                                            informasi data Detail KUMKM dan Detail Produk KUMKM yang disampaikan
+                                            dari Admin Kabupaten/Kota telah diperiksa serta dinyatakan lengkap dan
+                                            baik sebagai rekomendasi untuk dapat diluluskan menjadi mitra galeri
+                                            KUMKM PLUT Sumut.
+                                        </h3>
+                                        <br>
+                                        <div id="signBarcode">
+
+                                        </div>
+
+                                        {{-- End Form Pernyataan --}}
+                                        <div class="form-check">
+                                            <input required class="form-check-input" type="checkbox" name="pernyataan"
+                                                value="" id="pernyataan">
+                                            <label class="form-check-label" for="flexCheckChecked">
+                                                Setujui Pernyataan
+                                            </label>
+                                        </div>
+                                    </div>
+
                                     <textarea class="form-control" required name="catatan" id="catatan" placeholder="Catatan"></textarea>
-
-
 
 
                             </div>
@@ -151,7 +181,7 @@
                                 <!--begin::Svg Icon | path:assets/media/svg/icons/Media/Equalizer.svg-->
                                 <i class="fas fa-users icon-3x" style="color: white"></i>
                                 <!--end::Svg Icon-->
-                            </span> 
+                            </span>
                             <div class="text-inverse-success font-weight-bolder font-size-h5 mb-2 mt-5">
                                 {{ $totalUmkm }}</div>
                             <div class="font-weight-bold text-inverse-success font-size-sm">Total
@@ -385,15 +415,16 @@
                                                 </a>
                                             @endif
                                             @if (Auth::guard()->user()->level == 2)
-                                            <form action="{{ route('deleteumkm', $d->id) }}" method="post"
-                                                onsubmit="return confirm('Apakah anda sudah yakin menghapus data ini ?');"
-                                                class="pt-1">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit" class="btn-sm btn-danger btn-iconr" title="Delete">
-                                                    Hapus
-                                                </button>
-                                            </form>
+                                                <form action="{{ route('deleteumkm', $d->id) }}" method="post"
+                                                    onsubmit="return confirm('Apakah anda sudah yakin menghapus data ini ?');"
+                                                    class="pt-1">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn-sm btn-danger btn-iconr"
+                                                        title="Delete">
+                                                        Hapus
+                                                    </button>
+                                                </form>
                                             @endif
                                         @endif
 
@@ -423,4 +454,8 @@
     </div>
     <!-- Container-fluid Ends-->
     </div>
+
+    <script>
+
+    </script>
 @endsection

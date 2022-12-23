@@ -68,8 +68,8 @@
                         <div class="form-group">
                             <label for="">Deskripsi Produk <span class="text-danger">*</span> </label>
                             <div>
-                                <textarea type="text" name="deskripsi" id="" required class="form-control"
-                                    id="" value="" placeholder="Deskripsi Produk"> </textarea>
+                                <textarea type="text" name="deskripsi" id="" required class="form-control" id="" value=""
+                                    placeholder="Deskripsi Produk"> </textarea>
                             </div>
                         </div>
                         <div class="form-group">
@@ -90,15 +90,16 @@
                             <label for="">Bahan Kimia</label><br>
                             <label for="">Note (Pewarna, Pengawet, Pemanis Buatan, Penambah Aroma)</label>
                             <div>
-                                <textarea type="text" name="bahan_kimia" id="" class="form-control" id=""
-                                    value="" placeholder="Bahan Kimia"></textarea>
+                                <textarea type="text" name="bahan_kimia" id="" class="form-control" id="" value=""
+                                    placeholder="Bahan Kimia"></textarea>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="">Perhitungan Jumlah Komposisi bahan baku dan bahan tambahan dan bahan kimia</label>
+                            <label for="">Perhitungan Jumlah Komposisi bahan baku dan bahan tambahan dan bahan
+                                kimia</label>
                             <div>
-                                <textarea type="text" name="perhitungan_kimia" id="" class="form-control"
-                                    id="" value="" placeholder="Perhitungan Kimia"></textarea>
+                                <textarea type="text" name="perhitungan_kimia" id="" class="form-control" id="" value=""
+                                    placeholder="Perhitungan Kimia"></textarea>
                             </div>
                         </div>
                         <div class="form-group">
@@ -148,7 +149,9 @@
                         </div>
                         <div class="form-group">
                             <label for="">Biaya Produksi <span class="text-danger">*</span></label> <br>
-                            <label for="">Note ( Biaya Bahan Baku,Bahan Tambahan, Bahan Kimia yang dipergunakan + Biaya Lain-lain (Biaya Ongkos Kirim + Biaya Kemasan + dll)  + Biaya Tenaga Kerja Langsung + Biaya Overhead Produksi  dibagi Jumlah Kemasan Produksi )</label>
+                            <label for="">Note ( Biaya Bahan Baku,Bahan Tambahan, Bahan Kimia yang dipergunakan +
+                                Biaya Lain-lain (Biaya Ongkos Kirim + Biaya Kemasan + dll) + Biaya Tenaga Kerja Langsung +
+                                Biaya Overhead Produksi dibagi Jumlah Kemasan Produksi )</label>
                             <div>
                                 <input type="text" onchange="calculate()" name="biaya_produksi" class="form-control"
                                     id="biaya_produksi" value="" placeholder="Biaya Produksi" required>
@@ -296,7 +299,8 @@
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" value="tidak" name="opt_logo_halal" checked>
+                                <input class="form-check-input" type="radio" value="tidak" name="opt_logo_halal"
+                                    checked>
                                 <label class="form-check-label" for="flexRadioDefault2">
                                     Tidak
                                 </label>
@@ -315,7 +319,8 @@
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" value="tidak" name="opt_no_pirt" checked>
+                                <input class="form-check-input" type="radio" value="tidak" name="opt_no_pirt"
+                                    checked>
                                 <label class="form-check-label" for="flexRadioDefault2">
                                     Tidak
                                 </label>
@@ -327,7 +332,8 @@
 
                         {{-- radio button --}}
                         <div class=" form-group">
-                            <label for="">Nomor BPOM <span>(Khusus produk frozen, herbal, susu, dikemas didalam kaleng)</span></label>
+                            <label for="">Nomor BPOM <span>(Khusus produk frozen, herbal, susu, dikemas didalam
+                                    kaleng)</span></label>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" value="iya" name="opt_no_bpom">
                                 <label class="form-check-label" for="flexRadioDefault1">
@@ -335,7 +341,8 @@
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" value="tidak" name="opt_no_bpom" checked>
+                                <input class="form-check-input" type="radio" value="tidak" name="opt_no_bpom"
+                                    checked>
                                 <label class="form-check-label" for="flexRadioDefault2">
                                     Tidak
                                 </label>
@@ -353,11 +360,11 @@
                             <br>
                             <br>
                             <h3>
-                                Dengan ini kami menyatakan bahwa seluruh informasi data yang
-                                disampaikan adalah yang sebenar-benarnya dan apabila data KUMKM
-                                beserta Data Produk yang kami ajukan tidak sesuai dengan kondisi yang
-                                sebenarnya, maka kami bersedia menerima pengembalian Data dan Produk
-                                yang kami kirimkan.
+                                Dengan ini kami menyatakan bahwa seluruh informasi data yang disampaikan adalah
+                                yang sebenar-benarnya dan apabila data KUMKM beserta Data Produk yang kami ajukan
+                                tidak sesuai dengan kondisi yang sebenarnya, maka kami bersedia menerima
+                                pengembalian Data dan Produk yang kami kirimkan dengan menanggung segala biaya
+                                yang timbul akibat pengembalian produk dimaksud.
                             </h3>
                             <br>
                             <div id="signBarcode">
@@ -391,9 +398,10 @@
 
     <script>
         var result = 0;
+
         function calculate() {
             var a = document.getElementById("biaya_produksi").value;
-            var x =  (100 / (100 - 5)) * a;
+            var x = (100 / (100 - 5)) * a;
             result = Math.ceil(x);
             document.getElementById("harga").value = Math.ceil(x);
         }
@@ -406,7 +414,8 @@
                 <h3> Sign Barcode </h3>
                                 <br>
                                 <canvas height="50" width="50" id="qrcodeCanvas"></canvas>
-                                <input type="text" name="harga" value="`+result+`" hidden>
+                                <input type="text" name="harga" value="` + result +
+                    `" hidden>
                                 
                     <input id="barcode" type="text" hidden name="barcode" value="0{{ Auth::user()->id }}{{ $umkmModel->kode_kota }}{{ $umkmModel->kode_umkm }}` +
                     "0" + idKategori + `">

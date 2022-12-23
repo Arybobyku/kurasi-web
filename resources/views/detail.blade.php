@@ -121,8 +121,9 @@
                             <div class="col-sm-4">
                                 <label>Nomor NIB
                                     <span class="text-danger">*</span></label>
-                                <input disabled type="text" name="nib" id="" required class="form-control"
-                                    id="" value="{{ $umkm->nib }}" placeholder="Nomor NIB">
+                                <input disabled type="text" name="nib" id="" required
+                                    class="form-control" id="" value="{{ $umkm->nib }}"
+                                    placeholder="Nomor NIB">
                             </div>
                             <div class="col-sm-4">
                                 <label>Sertifikat NIB
@@ -274,6 +275,39 @@
                     </div>
 
 
+                    @if ($umkm->barcode_verif != null && Auth::guard()->user()->level == 3)
+                        {{-- Form Pernyataan --}}
+                        <i class="btn btn-sm btn-info btn-icon edit_btn mx-10" title="Print">
+                            <i class="la la-print" onclick="printDiv('suratPernyataan')"></i>
+                        </i>
+
+                        <div id="suratPernyataan" class="card mx-10 my-2 p-10">
+                            <center>
+                                <h1><b>SURAT PERNYATAAN VERIFIKATOR</b></h1>
+                            </center>
+                            <br>
+                            <br>
+                            
+                            <h3>
+                                Dengan ini menyatakan dengan sebenar-benarnya bahwa seluruh
+                                informasi data Detail KUMKM dan Detail Produk KUMKM yang disampaikan
+                                dari Admin Kabupaten/Kota telah diperiksa serta dinyatakan lengkap dan
+                                baik sebagai rekomendasi untuk dapat diluluskan menjadi mitra galeri
+                                KUMKM PLUT Sumut.
+                            </h3>
+                            <br>
+
+                            <h4>Sign Barcode</h4>
+                            <input type="text" value="{{ $umkm->barcode_verif }}" id="barcode" hidden>
+                            <div class="col-3 ">
+                                <canvas height="50" width="50" id="qrcodeCanvas"></canvas>
+                                <img id="canvaPrint">
+                            </div>
+                        </div>
+                        {{-- End Form Pernyataan --}}
+                    @endif
+
+
                     <div class="card-footer">
 
                         {{-- <button type="submit" class="btn btn-primary">Update</button> --}}
@@ -293,4 +327,41 @@
     </div>
     <!-- Container-fluid Ends-->
     </div>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bwip-js/3.0.4/bwip-js.min.js"></script>
+    <!-- ② -->
+    <script>
+        try {
+            var barcode = document.getElementById("barcode").value;
+            // The return value is the canvas element
+            let canvas = bwipjs.toCanvas('qrcodeCanvas', {
+                bcid: 'qrcode', // Barcode type
+                text: barcode,
+            })
+
+
+        } catch (e) {
+            // `e` may be a string or Error object
+        }
+
+        async function printDiv(divName) {
+
+            await capture();
+
+            var printContents = document.getElementById(divName).innerHTML;
+            var originalContents = document.body.innerHTML;
+
+            document.body.innerHTML = printContents;
+
+            window.print();
+
+            document.body.innerHTML = originalContents;
+        }
+
+        async function capture() {
+
+            const canvas = document.getElementById('qrcodeCanvas')
+            const img = canvas.toDataURL('image/png')
+            document.getElementById('canvaPrint').src = img
+        }
+    </script>
 @endsection

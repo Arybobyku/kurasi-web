@@ -62,7 +62,7 @@ class Umkm extends Model
         'kode_kota',
         'kode_umkm',
         'logo_umkm',
-    
+        'barcode_verif',
     ];
 
     use HasFactory;

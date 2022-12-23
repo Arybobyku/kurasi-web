@@ -55,6 +55,8 @@ class FormProduk extends Model
         "hak_cipta",
         "file_haki",
         "tgl_haki",
+        
+        "barcode_verif",
     
     ];
 

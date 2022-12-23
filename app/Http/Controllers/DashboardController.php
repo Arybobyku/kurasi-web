@@ -15,23 +15,23 @@ class DashboardController extends Controller
     public function index()
     {
         $umkm = [];
-        if(Auth::guard()->user()->level == 1){
-            $umkm = DB::table('umkm')->where('status',0)->get();
-        }elseif(Auth::guard()->user()->level == 2){
-            $umkm = DB::table('umkm')->where('status','!=',0)->get();
-        }elseif(Auth::guard()->user()->level == 3){
-            $umkm = DB::table('umkm')->where('status',1)->orWhere('status',2)->get();
+        if (Auth::guard()->user()->level == 1) {
+            $umkm = DB::table('umkm')->where('status', 0)->get();
+        } elseif (Auth::guard()->user()->level == 2) {
+            $umkm = DB::table('umkm')->where('status', '!=', 0)->get();
+        } elseif (Auth::guard()->user()->level == 3) {
+            $umkm = DB::table('umkm')->where('status', 1)->orWhere('status', 2)->get();
         }
 
         $anggota =  DB::table('anggota')->get();
-     
+
         $umkmverif = DB::table('umkm')->where("status", 2)->get();
         $totalUmkm =  DB::table('umkm')->get();
         return view('dashboard', [
-            'verif'=>$umkmverif,
+            'verif' => $umkmverif,
             'data' => $anggota,
             'umkm' => $umkm,
-            'totalUmkm'=>count($totalUmkm),
+            'totalUmkm' => count($totalUmkm),
         ]);
     }
 
@@ -39,14 +39,20 @@ class DashboardController extends Controller
     {
 
         $umkm = Umkm::find($request->idumkm)->update(['catatan' => $request->catatan, 'status' => 3]);
-        FormProduk::where('id_umkm',$request->idumkm)->update(['status'=>3]);
+        FormProduk::where('id_umkm', $request->idumkm)->update(['status' => 3]);
         return redirect()->back()->with('success', 'Data berhasil diperbarui');
     }
 
     public function terima(Request $request)
     {
-        Umkm::find($request->idterima)->update(['catatan' => $request->catatan, 'status' => 1]);
-        FormProduk::where('id_umkm',$request->idterima)->update(['status'=>1]);
+        $umkm = Umkm::where('id',$request->idterima)->first();
+        $produk = FormProduk::where('id_umkm',$request->idterima)->first();
+
+        $kateogri = $produk!=null?$produk->id_kategori:0;
+        $barcode = Auth::guard()->user()->id.$umkm->kode_kota.$umkm->kode_umkm.$kateogri;
+        
+        Umkm::find($request->idterima)->update(['catatan' => $request->catatan, 'status' => 1,'barcode_verif'=>$barcode]);
+        FormProduk::where('id_umkm', $request->idterima)->update(['status' => 1,'barcode_verif'=>$barcode]);
         return redirect()->back()->with('success', 'Data berhasil diperbarui');
     }
 
@@ -54,7 +60,7 @@ class DashboardController extends Controller
     public function terimaValidasi(Request $request)
     {
         Umkm::find($request->idterima)->update(['catatan' => $request->catatan, 'status' => 2]);
-        FormProduk::where('id_umkm',$request->idterima)->update(['status'=>2]);
+        FormProduk::where('id_umkm', $request->idterima)->update(['status' => 2]);
         return redirect()->back()->with('success', 'Data berhasil diperbarui');
     }
 
@@ -62,7 +68,7 @@ class DashboardController extends Controller
     public function tolakValidasi(Request $request)
     {
         Umkm::find($request->idumkm)->update(['catatan' => $request->catatan, 'status' => 3]);
-        FormProduk::where('id_umkm',$request->idumkm)->update(['status'=>3]);
+        FormProduk::where('id_umkm', $request->idumkm)->update(['status' => 3]);
         return redirect()->back()->with('success', 'Data berhasil diperbarui');
     }
 
@@ -86,7 +92,7 @@ class DashboardController extends Controller
             $jenis = DB::table('ms_jenis')->get();
             $umkm = DB::table("umkm")->where('id', $id)->first();
             $kota = DB::table('ms_kota')->get();
-            return view('edit', ['jenis' => $jenis, 'umkm' => $umkm,"kota"=>$kota]);
+            return view('edit', ['jenis' => $jenis, 'umkm' => $umkm, "kota" => $kota]);
         } else {
             return redirect()->route('home');
         }
@@ -94,7 +100,8 @@ class DashboardController extends Controller
         //   echo asset('storage/app/5/yoOPOR8scE8BNIjAwDCt0YxDeDxDWBMaz4SxFkOr.txt');
     }
 
-    public function hapus($id){
+    public function hapus($id)
+    {
         if (Auth::guard()->user()->level == 2) {
             Umkm::where('id', $id)->delete();
             FormProduk::where('id_umkm', $id)->delete();
@@ -102,7 +109,6 @@ class DashboardController extends Controller
         } else {
             return redirect()->route('home');
         }
-
     }
 
 
@@ -135,7 +141,7 @@ class DashboardController extends Controller
             $request['ttl'] = $request->tempat . ',' . $request->tanggal;
 
             $umkm =  Umkm::create($request->all());
-            $result = Umkm::where('id',$umkm->id)->update(array("kode_umkm"=>"00".$umkm->id));
+            $result = Umkm::where('id', $umkm->id)->update(array("kode_umkm" => "00" . $umkm->id));
             return redirect()->route("tambahProdukFormPage", $umkm->id)->with('success', 'Data berhasil ditambah');
         } else {
             return redirect()->route('home');

@@ -229,17 +229,46 @@
                         <form method="POST" action="{{ route('produkForm.terima') }}">
                             {{ csrf_field() }}
                             <input type="hidden" id="idterima" name="idProduk">
-                            <textarea class="form-control" required name="catatan" id="catatan" placeholder="Catatan"></textarea>
+                            {{-- Form Pernyataan --}}
+                            <div class="card my-2 p-10">
+                                <center>
+                                    <h1><b>SURAT PERNYATAAN <br>
+                                            Verifikator</b></h1>
+                                </center>
+                                <br>
+                                <br>
 
+                                <h3>
+                                    Dengan ini menyatakan dengan sebenar-benarnya bahwa seluruh
+                                    informasi data Detail KUMKM dan Detail Produk KUMKM yang disampaikan
+                                    dari Admin Kabupaten/Kota telah diperiksa serta dinyatakan lengkap dan
+                                    baik sebagai rekomendasi untuk dapat diluluskan menjadi mitra galeri
+                                    KUMKM PLUT Sumut.
+                                </h3>
+                                <br>
+                                <div id="signBarcode">
+
+                                </div>
+
+                                {{-- End Form Pernyataan --}}
+                                <div class="form-check">
+                                    <input required class="form-check-input" type="checkbox" name="pernyataan"
+                                        value="" id="pernyataan">
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                        Setujui Pernyataan
+                                    </label>
+                                </div>
+                                <textarea class="form-control" required name="catatan" id="catatan" placeholder="Catatan"></textarea>
+
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-secondary" type="button" data-dismiss="modal">Tutup</button>
+                                <button type="Submit" name="Submit" class="btn btn-primary">Verifikasi</button>
+                            </div>
+                        </form>
                     </div>
-                    <div class="modal-footer">
-                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Tutup</button>
-                        <button type="Submit" name="Submit" class="btn btn-primary">Verifikasi</button>
-                    </div>
-                    </form>
                 </div>
             </div>
-        </div>
 
-    </div>
-@endsection
+        </div>
+    @endsection

@@ -278,7 +278,8 @@
                         <div class="form-group">
                             <label for="">Logo Halal</label>
                             <div>
-                                <input disabled type="text" value="{{ $produk->opt_logo_halal }}" class="form-control">
+                                <input disabled type="text" value="{{ $produk->opt_logo_halal }}"
+                                    class="form-control">
                             </div>
                         </div>
                         <div class="form-group">
@@ -343,16 +344,22 @@
                                 </div>
                                 <br>
                                 <h4>
-                                    Berdasarkan hasil verifikasi terhadap seluruh informasi data
-                                    Legalitas KUMKM, Sertifikasi Produk dan seluruh dokumen yang telah
-                                    di upload ke dalam sistem Aplikasi Kurasi ini telah lengkap dan telah sesuai dengan
-                                    ketentuan yang ditetapkan dan dinyatakan LULUS.
+                                    Berdasarkan hasil verifikasi terhadap seluruh informasi data Legalitas KUMKM,
+                                    Sertifikasi Produk dan seluruh dokumen yang telah di upload ke dalam sistem
+                                    Aplikasi Kurasi ini telah lengkap dan telah sesuai dengan ketentuan yang
+                                    ditetapkan dan dinyatakan LULUS.
                                 </h4>
                                 <br>
                                 <h4>
-                                    Selanjutnya dapat segera ditindaklanjuti dengan mengirimkan produk dimaksud
-                                    ke Galeri KUMKM UPT.Pusat Layanan Usaha Terpadu Dinas Koperasi dan UKM
-                                    Provinsi Sumatera Utara/ Jl.Jend.Gatot Subroto Km, 5,6 (Komplek PRSU) Medan.
+                                    Selanjutnya dapat segera ditindaklanjuti dengan mengirimkan produk dimaksud ke
+                                    Galeri KUMKM UPT.Pusat Layanan Usaha Terpadu Dinas Koperasi dan UKM Provinsi
+                                    Sumatera Utara/ Jl.Jend.Gatot Subroto Km, 5,6 (Komplek PRSU) Medan.
+                                </h4>
+                                <br>
+                                <h4>
+                                    Dengan ketentuan apabila produk yang dikirimkan ternyata tidak sesuai dengan data maupun upload 
+                                    foto yang telah disampaikan kepada tim verifikator, maka surat keterangan ini dinyatakan batal dan 
+                                    adapun segala biaya yang timbul akibat pengembalian produk akan ditanggung oleh pihak pengirim.  
                                 </h4>
                                 <br>
                                 <h4> {{ $umkmModel->kota->nama }}, {{ date('d F Y', strtotime($produk->created_at)) }}
@@ -393,7 +400,7 @@
                 bcid: 'qrcode', // Barcode type
                 text: barcode,
             })
-            
+
 
         } catch (e) {
             // `e` may be a string or Error object
