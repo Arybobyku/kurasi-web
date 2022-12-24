@@ -57,6 +57,11 @@ class FormProduk extends Model
         "tgl_haki",
         
         "barcode_verif",
+
+        "nama_sni",
+        "no_sni",
+        "file_sni",
+        "tgl_sni",
     
     ];
 

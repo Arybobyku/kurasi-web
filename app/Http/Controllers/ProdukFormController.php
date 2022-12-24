@@ -66,6 +66,12 @@ class ProdukFormController extends Controller
                 $image = asset('storage/' . $ttd);
                 $request['file_haki'] = $image;
             }
+
+            if ($request->file('filesni') != null) {
+                $ttd = $request->file('filesni')->store("berkas");
+                $image = asset('storage/' . $ttd);
+                $request['file_sni'] = $image;
+            }
             
             $request['id_umkm'] = $request->id;
             $request['status'] = 0;
@@ -129,6 +135,14 @@ class ProdukFormController extends Controller
                 $image = asset('storage/' . $ttd);
                 $request['file_haki'] = $image;
             }
+
+            if ($request->file('filesni') != null) {
+                $ttd = $request->file('filesni')->store("berkas");
+                $image = asset('storage/' . $ttd);
+                $request['file_sni'] = $image;
+            }
+            
+            
             $request['status'] = 0;
 
             $matchThese = ['id' => $request->id];

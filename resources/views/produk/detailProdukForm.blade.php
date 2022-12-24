@@ -228,6 +228,40 @@
                             </div>
                         </div>
 
+                        <div class="form-group row">
+                            <div class="col-sm-4">
+                                <label>Nama SNI
+                                    <span class="text-danger"></span></label>
+                                <input disabled type="text" name="no_pirt" class="form-control" id="no_pirt"
+                                    value="{{ $produk->nama_sni }}" placeholder="Nama SNI">
+                            </div>
+                            <div class="col-sm-4">
+                                <label>File SNI
+
+                                    <span class="text-danger"></span></label>
+                                <br>
+                                @if ($produk->file_sni == null)
+                                    <span class="text-danger">Sertifikat
+                                        SNI Tidak Tersedia</span>
+                                @else
+                                    <a href="{{ $produk->file_sni }}" target="_blank">Lihat File SNI</a>
+                                @endif
+
+                            </div>
+                            <div class="col-sm-4">
+                                <label>No. SNI
+                                    <span class="text-danger"></span></label>
+                                <input disabled type="text" name="no_pirt" class="form-control" id="no_pirt"
+                                    value="{{ $produk->no_sni }}" placeholder="No. SNI">
+                            </div>
+                            <div class="col-sm-4">
+                                <label>Tanggal Penerbitan SNI
+                                    <span class="text-danger"></span></label>
+                                <input disabled type="date" name="tgl_pirt" class="form-control" id="tgl_pirt"
+                                    value="{{ $produk->tgl_sni }}" placeholder="Tanggal SNI">
+                            </div>
+                        </div>
+
 
                         <br>
                         No. Sertifikasi HAKI

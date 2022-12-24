@@ -229,6 +229,33 @@
                             </div>
                         </div>
 
+                        <div class="form-group row">
+                            <div class="col-sm-4">
+                                <label>Nama SNI
+                                    <span class="text-danger"></span></label>
+                                <input type="text" name="nama_sni" class="form-control" id="no_pirt" value=""
+                                    placeholder="Nama SNI">
+                            </div>
+                            <div class="col-sm-4">
+                                <label>No. SNI
+                                    <span class="text-danger"></span></label>
+                                <input type="text" name="no_sni" class="form-control" id="no_pirt" value=""
+                                    placeholder="No. SNI">
+                            </div>
+                            <div class="col-sm-4">
+                                <label>File SNI
+                                    <span class="text-danger"></span></label>
+                                <input type="file" name="filesni" class="form-control" id="filepirt"
+                                    value="" placeholder="File SNI">
+                            </div>
+                            <div class="col-sm-4">
+                                <label>Tanggal Penerbitan SNI
+                                    <span class="text-danger"></span></label>
+                                <input type="date" name="tgl_sni" class="form-control" id="tgl_pirt"
+                                    value="" placeholder="Tgl SNI">
+                            </div>
+                        </div>
+
                         <hr>
                         <br>
                         No. Sertifikasi HAKI
